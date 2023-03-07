@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+ {% block title %}profile{% endblock %}    
+        {% block content %}
+        <style>
+        body{
+            padding:25px;
+            overflow-x: hidden;
+        }
+        
+        input:focus{
+             outline: none;
+         }
+         
+         form{
+             width: 35%;
+             margin-left:auto;
+             margin-right:auto;
+             padding:50px;
+             background:whitesmoke;
+             border-radius:5px;
+             position:relative;
+             font-family: 'Libre Franklin', sans-serif;
+         }
+     
+         form > div {
+             float:left;margin-bottom:30px;
+         }
+         form > div > p{
+             font-size: 12px;margin-bottom: 3px;
+         }
+         form > div > input{
+             font-size:12px;letter-spacing:1px;padding:  5px;border: 0;background:  whitesmoke;border-bottom: 1px solid silver;width: 100%;color: gray;
+         }
+     
+         form > p:last-of-type{
+             text-align: center;padding-top: 50px;display:  table;width: 100%;color:white;
+         }
+     
+         form > p:last-of-type > a{
+             cursor:pointer;border:0;
+             padding: 10px 25px;
+             background:  silver;
+             border-radius:  28px;
+             font-size: 12px; 
+         }
+     
+         .term{
+             padding-top:40px;display: flex;width:  100%;align-items:  center;
+         }
+     
+         .term > i{
+             cursor:pointer;width:20px;
+         }
+     
+         .term > span{
+             font-size:12px;
+         }
+     
+         /* delete */
+         form > a:last-of-type{
+             position:absolute;
+             bottom: 10px;
+             right: 15px;
+             font-size:  10px;
+             letter-spacing:  1px;
+             font-style: italic;
+         }
+        </style>
+        <h1 class="text-center">Profile details</h1>
+<div style="display:flex;width:100%;">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div style="width:100%;">
+            {% for i in customer%}
+            <p>USERNAME</p>
+            <input value="{{i.name}}" name="name" autofocus>
+        </div>
+       
+        <div style="width:100%">
+            <p>PHONE NO</p>
+            <input value="{{i.phno}}" name="phone">
+        </div>
+    
+
+        <p>
+            <button type="submit"><a href="{% url 'profile' %}?edit1={{i.student_id}}">EDIT</a></button>
+        </p>
+        {% endfor%}
+    </form> 
+</div>
+{% endblock%}

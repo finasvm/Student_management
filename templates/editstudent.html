@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+ {% block title %}showstudents{% endblock %}    
+        {% block content %}
+        <style>
+        body{
+            padding:25px;
+            overflow-x: hidden;
+        }
+        
+        input:focus{
+             outline: none;
+         }
+         
+         form{
+             width: 35%;
+             margin-left:auto;
+             margin-right:auto;
+             padding:50px;
+             background:whitesmoke;
+             border-radius:5px;
+             position:relative;
+             font-family: 'Libre Franklin', sans-serif;
+         }
+     
+         form > div {
+             float:left;margin-bottom:30px;
+         }
+         form > div > p{
+             font-size: 12px;margin-bottom: 3px;
+         }
+         form > div > input{
+             font-size:12px;letter-spacing:1px;padding:  5px;border: 0;background:  whitesmoke;border-bottom: 1px solid silver;width: 100%;color: gray;
+         }
+     
+         form > p:last-of-type{
+             text-align: center;padding-top: 50px;display:  table;width: 100%;color:white;
+         }
+     
+         form > p:last-of-type > a{
+             cursor:pointer;border:0;
+             padding: 10px 25px;
+             background:  silver;
+             border-radius:  28px;
+             font-size: 12px; 
+         }
+     
+         .term{
+             padding-top:40px;display: flex;width:  100%;align-items:  center;
+         }
+     
+         .term > i{
+             cursor:pointer;width:20px;
+         }
+     
+         .term > span{
+             font-size:12px;
+         }
+     
+         /* delete */
+         form > a:last-of-type{
+             position:absolute;
+             bottom: 10px;
+             right: 15px;
+             font-size:  10px;
+             letter-spacing:  1px;
+             font-style: italic;
+         }
+        </style>
+        <h1 class="text-center">Edit details</h1>
+<div style="display:flex;width:100%;">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div style="width:100%;">
+            {% for i in student %}
+            <p>STUDENT ID</p>
+            <input value="{{i.student_id}}" name="id" readonly>
+        </div>
+        <div style="width:100%;">
+           
+            <p>STUDENT NAME</p>
+            <input value="{{i.student_name}}" name="name" autofocus>
+        </div>
+       
+        <div style="width:47%">
+            <p>STUDENT PHNO</p>
+            <input value="{{i.student_phone}}" name="phone">
+        </div>
+        <div style="width:47%;margin-left:6%">
+            <p>STUDENT EMAIL</p>
+            <input value="{{i.student_email}}" name="email">
+        </div>
+        <div style="width:47%">
+            <p>STUDENT ADDRESS</p>
+            <input value="{{i.student_address}}" name="address">
+        </div>
+        <div style="width:47%;margin-left:6%">
+            <p>STUDENT PLACE</p>
+            <input value="{{i.student_place}}" name="place">
+        </div>
+    
+
+        <p>
+            <button type="submit">EDIT</button>
+        </p>
+        {% endfor%}
+    </form> 
+</div>
+{% endblock%}

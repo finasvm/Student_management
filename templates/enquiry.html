@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+ {% block title %}enquiry{% endblock %}    
+        {% block content %}
+        <h1 class="text-center">Enquiry details</h1>
+        <div class="row">      
+            <div class="col-md-12">
+                <form action="">
+                <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>phone number</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                     {% for i in customer %}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.phno}}</td>
+                           
+                    </tr>
+                    {% endfor %}
+                     
+                           
+                    </tbody>
+                </table>
+
+      
+    </form>
+
+            </div>
+        </div>
+
+        {% endblock%}

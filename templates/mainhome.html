@@ -1,0 +1,30 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+ {% block title %}main home{% endblock %}    
+        {% block content %}
+ <br><br><br><br>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{%  static '/img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>No Tuition Fee Upfront,
+                Pay Only When You Earn.</h3>
+            <p class="fst-italic">
+                HEXA in Brief?
+            </p>
+            HEXA helps the young Indian generation who had benefited nothing from our country’s poor education system by providing an intensive industry relevant training on the leading software technologies.
+
+            The HEXA program is completely FREE upfront and our students pay zero tuition fee until they land a job. We believe everyone should get the right opportunities to learn, hence we do not charge any fees upfront.
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    
+    {% endblock%}
